@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: nacos-user
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        # Nacos 认证用户
+        username: nacos
+        # Nacos 认证密码
+        password: nacos
+        server-addr: 127.0.0.1:8848
+        prefix: nacos-user
+        file-extension: yml
+        # 支持多个共享 Data Id 的配置，优先级小于extension-configs,自定义 Data Id 配置 属性是个集合，内部由 Config POJO 组成。Config 有 3 个属性，分别是 dataId, group 以及 refresh
+        shared-configs[0]:
+          data-id: nacos-user-dev-config-share1.yml # 配置文件名-Data Id
+          group: DEFAULT_GROUP   # 默认为DEFAULT_GROUP
+          refresh: false   # 是否动态刷新，默认为false
+        shared-configs[1]:
+          data-id: nacos-user-dev-config-share2.yml
+          group: DEFAULT_GROUP
+          refresh: true

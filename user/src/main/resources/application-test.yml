@@ -1,0 +1,13 @@
+
+server:
+  port: 8090
+
+nacos:
+  share: nacos-config-share
+
+
+debug: false
+
+logging:
+  file:
+    path: /mnt
